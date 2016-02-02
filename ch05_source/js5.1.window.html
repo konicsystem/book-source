@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<title>Insert title here</title>
+<script>
+window.onload = function() {
+	win = window.open("","_blank","width=200,height=200");
+	setTimeout(function() {
+		win.moveTo(100,100);
+		setTimeout(function() {
+			win.resizeTo(500,500);
+			setTimeout(function() {
+				win.close();
+				document.write("<h1>감사합니다.</h1>");
+			}, 1000);
+		}, 1000);
+	}, 1000);
+}
+</script>
+</head>
+<body>
+<!--
+window.open() 속성 정리
+directories [yes/no]	- 윈도의의 directory button 들의 출력여부
+location [yes/no]		- 윈도우의 location box 표시여부
+menubar [yes/no]		- 윈도의의 menuvar 표시여부
+resizable [yes/no]		- 윈도우의 크기가 조정될 수 있는지 결정
+scrolbars [yes/no]		- 윈도우의 가로/세로 scrollbar 표시여부
+staus [yes/no]			- 윈도우의 상태표시줄 표시여부
+toolbar [yes/no]		- 윈도우의 toolbar 표시여부
+width					- 윈도우의 너비 결정
+height					- 윈도우의 높이 결정
+top						- 윈도우의 screen y좌표 위치
+left					- 윈도우의 screen x좌표 위치
+-->
+</body>
+</html>

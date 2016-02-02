@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+
+<script src="../lib/jquery-1.9.1.min.js"></script>
+
+<script>
+	$(document).ready(function(){
+		
+		//1. 홀수행 찾기
+		$("tr:odd").css("background","gray")
+		
+		//2. 짝수행 찾기
+		$("tr:even").css("background","green")
+		
+		//3.첫번째 행 backgroud , fontSize  속성
+		$("tr:first").css({'background':'pink', 'fontSize':'20px'});
+		
+		//4. tr의 5번째 찾기
+		$('tr:eq(5)').css('color','red');
+		
+		//5. tr의 0 제외 하고  찾기
+		$('tr:gt(0)').css('background','orange');	
+		
+		//5. tr의 0 제외 하고  찾기 
+		$('tr:not(tr:eq(0))').css('background','green');//not(selector) - 인수로 숫자안됨
+		
+		
+		//6. nth-child(숫자n+1) -- 숫자의 배수를 배수 + 1 		
+		$('tr:nth-child(3n+1)').css('background','green')
+		
+		//7. nth-child(숫자n) -- 숫자의 배수를 배수 		
+		$('td:nth-child(2n)').css("color",'red');
+		
+	})
+	
+</script>
+</head>
+<body>
+<h1>selector Filter 적용예제</h1>
+<table width="300">
+	 <tr>
+	 	<th>이름</th>
+		<th>나이</th>
+		<th>주소</th>
+	 </tr> 
+	 <tr>
+	 	<td>홍길동</td>
+		<td>20</td>
+		<td>서울</td>
+	 </tr>
+	 <tr>
+	 	<td>이순신</td>
+		<td>10</td>
+		<td>성남</td>
+	 </tr>
+	 <tr>
+	 	<td>선덕여왕</td>
+		<td>23</td>
+		<td>부산</td>
+	 </tr>
+	 <tr>
+	 	<td>왕건</td>
+		<td>30</td>
+		<td>대구</td>
+	 </tr>
+	 <tr>
+	 	<td>양귀비</td>
+		<td>35</td>
+		<td>서울</td>
+	 </tr>
+	 <tr>
+	 	<td>주몽</td>
+		<td>27</td>
+		<td>경기도</td>
+	 </tr>
+	 <tr>
+	 	<td>정약용</td>
+		<td>20</td>
+		<td>원주</td>
+	 </tr>
+	 <tr>
+	 	<td>세종대왕</td>
+		<td>52</td>
+		<td>전라도</td>
+	 </tr>
+	 <tr>
+	 	<td>강감찬</td>
+		<td>40</td>
+		<td>강원도</td>
+	 </tr>
+	 
+</table>
+
+</body>
+</html>
+
+
+
+
+
+

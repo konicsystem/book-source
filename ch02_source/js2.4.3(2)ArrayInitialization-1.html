@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload = function() {
+	var arr1 = new Array("오징어","꼴뚜기","대구","명태","거북이");
+	var arr2 = [100,200,300,400,500];
+	var arr3 = document.getElementsByTagName("li");
+	console.log(arr1); 
+	console.log(arr2);
+	console.log(arr3);
+	var node = (document.getElementById("u")).childNodes;
+	for(var i=0, cnt = 0; i<node.length; i++) {
+		if(node[i].nodeName == "LI") {
+			arr2[cnt] = node[i].innerHTML;
+			node[i].innerHTML = arr1[cnt++];
+		}
+	}
+	var ul = document.getElementById("u");
+	for(var i in arr2) {
+		var li = document.createElement("li");
+		li.innerHTML = arr2[i];
+		ul.appendChild( li );
+	}
+}
+</script>
+</head>
+<body>
+<ul id="u">
+	<li>울릉도</li>
+	<li>동남쪽</li>
+	<li>뱃길따라</li>
+	<li>2백리</li>
+	<li>독도는 우리땅</li>
+</ul>
+</body>
+</html>

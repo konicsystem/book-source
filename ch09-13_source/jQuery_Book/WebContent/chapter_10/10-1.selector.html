@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script src="../lib/jquery-1.9.1.min.js"></script>
+<script>
+$(document).ready(function(){
+	//$('선택자').css(‘속성’,’값’);
+		 
+	//1. 문서 전체의 글자색 변경
+	$('*').css("color", "red");
+		 
+	//2. h3 태그에 밑줄 그리기
+	$('h3').css('textDecoration','underline');
+		 
+	//3. h3, h4 태그에 바탕색 pink 지정하기
+	$('h3, h4').css('backgroundColor','pink');
+		 
+	//4. class div의 글자 크기를 30
+	$('.div').css('fontSize','30px');
+		  
+	//5. id tag의 글자 색상을 blue
+	$('#tag').css('color','blue'); 	
+});
+</script>
+
+</head>
+<body>
+	
+<h3>jQuery 기본 selector</h3>
+<h4>웹 프로그래밍</h4>
+<div class="div">
+	<ol>
+     	<li>jsp</li>
+		<li id="tag">javaScript</li>
+		<li>jQuery</li>
+		<li>Ajax</li>
+	</ol>
+</div>
+	
+
+</body>
+</html>

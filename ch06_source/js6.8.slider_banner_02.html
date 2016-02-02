@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title> slider_banner_01.html </title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<style type="text/css">
+#banner {
+	position: relative;
+	border: 3px solid red;
+	width: 300px;
+	height: 125px;
+	background: yellow;
+	overflow: hidden;
+}
+#img_grp {
+	position: relative;
+	background: green;
+	width: 1400px;
+	height: 60px;
+	padding: 0;
+	margin: 0;
+}
+.img {
+	position: relative;
+	float: left;
+	list-style: none;
+}
+#popup {
+	position: absolute;
+	top: 20px;
+	left: 50px;
+	width: 200px;
+	height: 300px;
+	background: red;
+	border: 3px solid black;
+	display: none;
+}
+#popup img {
+	width: 100%;
+	height: 100%;
+}
+img{
+	width: 100px;
+}
+</style>
+<script type="text/javascript">
+imgLis = new Array(13);
+banner = null;
+popup = null;
+createLi = function( i ) {
+	var li = /*start*/ document.createElement("li");
+	li.className = "img";
+	var fileName = "img" + (i<10 ? "0"+i : i) + ".jpg";
+	console.log(fileName);
+	li.innerHTML = '<img src="images/'+fileName+'">';
+	imgLis[i] = li;  /*end*/
+	return li; //새로 생성된 li요소의 참조값을 리턴한다.
+}
+init = function() {
+	banner = document.getElementById("banner");
+	popup = document.getElementById("popup");
+	this.ul = document.createElement("ul");
+	this.ul.id = "img_grp";
+	for(var i=0; i<13; i++) {
+		var li = createLi( i );
+		ul.appendChild(li);
+	}
+	banner.appendChild(this.ul);
+}
+setEvent = function() {
+	for(var i=0; i<imgLis.length; i++) {
+		imgLis[i].onclick = function() {	
+			//alert(this.innerHTML);
+			popup.style.display = "block";
+
+			var str = this.innerHTML;
+			str = str.substr(0,str.length-1);
+			str += ' width="100%" height="100%">';
+			//console.log(str);
+			popup.innerHTML = str;
+		}
+	}
+	popup.onclick = function() {
+		this.style.display = "none";
+	}
+}
+var cnt = 0;
+var step = -10;
+move = function() {
+	cnt += step;
+	if(cnt < -990 || cnt > -10) {
+		step *= -1;
+	}
+	ul.style.left = cnt + "px";
+}
+start = function() {
+	setEvent();
+	
+	fn = setInterval("move()", 100);
+	banner.onmouseover = function() {
+		clearInterval(fn); //setInterval로 적용된 기능을 해지한다.
+	}
+	banner.onmouseout = function() {
+		fn = setInterval("move()", 100);
+	}
+}
+window.onload = function() {
+	init();
+	start();
+}
+</script>
+</head>
+<body>
+	<div id="banner"></div>
+	<div id="popup"></div>
+	<p>이미지를 클릭 하시면 크게 볼수 있습니다.</p>
+</body>
+</html>
+
+
+
+
+
+
+
+

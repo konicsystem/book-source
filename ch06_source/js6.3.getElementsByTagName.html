@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+</head>
+<body>
+<script type="text/javascript">
+setNumber = function() {
+	for(var i=0; i<tdArr.length; i++) {
+		tdArr[i].innerHTML = "" + i;
+	}
+}
+setColor = function() {
+	var colors = ['red','orange','yellow','green','blue','navy','violet'];
+	for(var i=0; i<tdArr.length; i++) {
+		tdArr[i].style.background = colors[i];
+	}
+}
+window.onload = function() {
+	tdArr = document.getElementsByTagName('td');
+}
+</script>
+<table border="1">
+	<tr height="50">
+		<td width="50">.</td>
+		<td width="50">.</td>
+		<td width="50">.</td>
+		<td width="50">.</td>
+		<td width="50">.</td>
+		<td width="50">.</td>
+		<td width="50">.</td>
+	</tr>
+</table>
+<button onclick="setNumber()">셀에 번호 채우기</button><br>
+<button onclick="setColor()">셀에 색상 채우기</button><br>
+</body>
+</html>

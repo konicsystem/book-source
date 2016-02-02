@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+table{border : solid blue thin;}
+</style>
+</head>
+<body>
+<h1>자동차 목록</h1> 
+<table>
+	<tr><th>자동차이름</th><th>자동차가격</th><th>제조회사</th><th>연식</th><th colspan='2'><a href='/carRegistForm'>상품등록</a></th></tr>
+	<%
+		for(var i in data){
+	%>
+	<tr>
+	<td><%=data[i].car_name%></td>
+	<td><%=data[i].car_price%></td>
+	<td><%=data[i].car_company%></td>
+	<td><%=data[i].car_year%></td>
+	<td><a href='/carDelete?car_no=<%=data[i].car_no%>'>삭제</a></td>
+	<td><a href='/carUpdateForm?car_no=<%=data[i].car_no%>'>수정</a></td>
+	</tr>
+	<%
+	}
+	%>
+</table>
+</body>
+</html>

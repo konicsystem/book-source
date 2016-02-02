@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title> New Document </title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8";	/>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+/*	스크립트를 선언한 후 바로 변수를 작성 하면 전역변수.
+	전역변수는 멤버변수라고도 하고, 지역변수는 로컬변수라고도 한다.
+	객체의 멤버변수는 "속성" 또는 "Attribute"라고 한다.
+	객체의 멤버함수는 "메소드" 또는 "Behavior"라고 한다.
+	전역변수(window) : name = window.name = this.name	*/
+var name = "Hong micle";
+grade = 9;  
+//전역에서 선언한 변수는 var을 쓰든 쓰지않든 window객체의 멤버다.
+console.log(name +", "+ window.name +", "+ this.name);
+
+//사용자 함수 testFn()를 선언한다.
+function testFn() {
+	var school = "My school";	//testFn함수의 지역변수이다.
+	school2 = "Your school";	//전역변수로 간주한다.
+	console.log(school.length);
+	console.log(window.school2);
+}
+testFn(); //선언된 함수를 호출 해야 실행이 된다.
+console.log("밖에서 ... " + school2); 
+//school2는 전역변수로 본다.
+console.log("밖에서 ... " + school);
+//school은 지역변수이므로 함수 외부에선 not defined이다.
+</script>
+</head>
+
+<body>
+  
+</body>
+</html>

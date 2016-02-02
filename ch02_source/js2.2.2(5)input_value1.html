@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8";	/>
+<script type="text/javascript">
+checkValue = function(element) {
+	var inputText = document.getElementById("userName");
+	var userNameValue = inputText.value;
+	if(userNameValue == "성명입력" || userNameValue == "") {
+		alert("먼저 성명을 입력하세요.");
+		inputText.value = "";
+		inputText.focus();
+		return;
+	}
+	inputText.size = userNameValue.length;
+	alert('inputText.size');
+		element.value = userNameValue + "님은 이미 확인 하였습니다.";
+	element.onclick = "";
+}
+</script>
+</head>
+<body> 
+	<input type="text" id="userName" value="성명입력" onclick="this.value=''" />
+	<input type="button" id="btn" value="확인하기" onclick="checkValue(this)" />
+</body>
+</html>

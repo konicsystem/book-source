@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+//크로스 브라우징 처리
+HTTP = {};
+HTTP._factory = [
+	function () { return new XMLHttpRequest(); }, //표준
+	function () { return new ActiveXObject("Msxml12.XMLHTTP"); },
+	function () { return new ActiveXObject("Msxml13.XMLHTTP"); },
+	function () { return new ActiveXObject("Microdoft.XMLHTTP"); },	
+];
+HTTP.createXMLHTTPObj = function() {
+	var xmlHTTP = null;
+	
+	for(var i=0; HTTP._factory.length; i++) {
+		try{
+			xmlHTTP = HTTP._factory[i](); //(function() {})();
+			break;
+		} catch(e) {
+			continue;
+		}
+	}
+	
+	return xmlHTTP;
+}
+this.xmlHttp = null;
+window.onload = function() {
+	//1. XMLHttprequest 객체 생성.
+	this.xmlHttp = HTTP.createXMLHTTPObj();
+	console.log(this.xmlHttp);
+	
+	//2. 요청에 대한 응답처리 이벤트 리스터 등록.
+	this.xmlHttp.onreadystatechange = on_ready;
+	
+	//3. 서버와 클라이언트 연결 요청 준비(전송방식[GET/POST], 주소, 동기));
+	var data = "user=kim&memo=love";
+	this.xmlHttp.open("POST","data.jsp",true);
+	
+	//POST이면 Content-Type 을 지정.
+	this.xmlHttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+	
+	//4. 실제 데이터 전송
+	this.xmlHttp.send(data);
+}
+on_ready = function() {
+	console.log(xmlHttp.readyState);
+	//readState 의 값이
+	//1=로딩중, 2=로딩됨, 3=대화상태, 4=데이터전송완료
+	if(xmlHttp.readyState == 4) {
+		console.log("status=" + xmlHttp.status);
+		//404=파일부재함, 500=서버나 서버측 랭귀지 에러, 200=정상
+		if(xmlHttp.status == 200) {
+			//console.log(xmlHttp.responseText);
+			parseData(xmlHttp.responseText);
+		}
+	}
+}
+parseData = function(respTxt) {
+	console.log("parseData=" + respTxt);
+	var dataArr = respTxt.split("|");
+	//dataArr[0] = "user:kim";
+	//dataArr[1] = "memo:love";
+	for(var i=0; i<dataArr.length; i++) {
+		objArr = dataArr[i].split(":");
+		//objArr[0] = "user";
+		//objArr[1] = "kim";
+		console.log("key="+objArr[0]+", value="+objArr[1]);
+	}
+}
+</script>
+</head>
+<body>
+<h1>길동이의 홈페이지</h1>
+<h2>환영합니다.</h2>
+</body>
+</html>
+
+
+

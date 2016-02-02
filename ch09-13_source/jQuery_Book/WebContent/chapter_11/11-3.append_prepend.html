@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<style>
+	img{width:50px;height:40px}
+</style>
+<script src="../lib/jquery-1.9.1.min.js"></script>
+<script>
+	var color=new Array("red","green","pink","yellow");
+	
+	$(document).ready(function(){
+	   //h3태그의 각각 다른 바탕색적용하기
+	   $('h3').each(function(index){
+	   	   $(this).css("background",color[index])
+	   });
+	   
+	   var img = "<img src='img/jpup_id.jpg'>";
+	   
+	   $('#pre').click(function(){
+	   	  $(".a").prepend(img);
+	   });
+	   
+	   $('#app').click(function(){
+	   	   $(".b").append(img);
+	   });
+	   
+	 
+	   $('#preTo').click(function(){
+	   	  $(img).prependTo('.c');
+	   })
+	   
+	    $('#appTo').click(function(){
+	   	  $(img).appendTo('.d');
+	   })
+	   
+	   
+	
+	})
+</script>
+</head>
+<body>
+	<input type="button" id="pre" value="prepend"/>
+	<input type="button" id="app" value="append"/>
+	
+    <input type="button" id="preTo" value="prependTo"/>
+	<input type="button" id="appTo" value="appendTo"/>
+	
+	<h3 class="a">prepend 영역</h3>
+	<h3 class="b">append 영역</h3>
+	<h3 class="c">prependTo 영역</h3>
+	<h3 class="d">appendTo 영역</h3>
+</body>
+</html>

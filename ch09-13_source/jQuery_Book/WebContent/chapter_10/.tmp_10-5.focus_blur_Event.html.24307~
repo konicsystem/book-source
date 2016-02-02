@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+
+<script src="../lib/jquery-1.9.1.min.js"></script>
+
+<script>
+	$(document).ready(function(){
+		//1. name text박스에 포커스를 놓으면 border 속성 적용
+	    $('input[name=name]')
+		.focus(function(){ 
+		    $(this).css("border","double 5px red");//$(this)이벤트 발생시키는 주체
+		 })
+		 
+		 //2.포커스 잃어버리면 border 없애고 입력된 데이터 alert()에 출력
+	    .blur(function(){
+		     $(this).css("border","");	
+			 alert( "이름 : " +  $(this).val() )
+		});
+	})
+	
+</script>
+</head>
+<body>
+<h1>focus 와 blur 이벤트</h1>
+
+<form>
+   이름 : <input type="text" name="name">	
+ </form>	
+
+</body>
+</html>
+
+
+
+
+
+

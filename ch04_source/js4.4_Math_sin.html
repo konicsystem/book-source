@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title> New Document </title>
+<style>
+#box {
+	position: relative;
+	left: 250px;
+	top: 250px;
+	width: 50px;
+	height: 50px;
+	background: red;
+}
+</style>
+<script>
+window.onload = function() {
+	var box = document.getElementById("box");
+	var x = 0;
+	var fn = setInterval(function() {
+		var value = x * 0.1;
+		var left = 250 + Math.floor(Math.sin(value)*150);
+		var top = 250 + Math.floor(Math.cos(value)*50);
+		var width = 50 + Math.floor(Math.cos(value)*30);
+		var height = 50 + Math.floor(Math.cos(value)*30);
+		box.style.left = left + "px";
+		box.style.top = top + "px";
+		box.style.width = width + "px";
+		box.style.height = height + "px";
+		x++;
+	}, 30);
+}
+</script>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>

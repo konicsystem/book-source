@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<script type="text/javascript">
+window.onload = function() {
+	var btn = document.getElementById("btn");
+	btn.onclick = function(e) {
+		console.log(e.target);
+		console.log(e.x); //클릭한 지점의 마우스 포인터 x
+		console.log(e.y); //클릭한 지점의 마우스 포인터 y
+		console.log(e.target.offsetLeft); //대상 요소의 left
+		console.log(e.target.offsetTop); //대상 요소의 right
+	}
+}
+</script>
+</head>
+<body>
+<button id="btn">결과 확인</button>
+</body>
+</html>

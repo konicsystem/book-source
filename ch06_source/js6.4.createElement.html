@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+</head>
+<body>
+<style type="text/css">
+#popup {
+	position: Absolute;
+	width: 300px;
+	height: 300px;
+	top: 25px;
+	left: 15px;
+	border: 3px solid Red;
+	background: Yellow;
+}
+#view {
+	width: 296px;
+	height: 270px;
+	border: 1px solid black;
+}
+</style>
+<script type="text/javascript">
+window.onload = function() {
+	var btn = document.getElementById("btn");
+	btn.onclick = function() {
+		popup = document.createElement("div");
+		closeBtn = document.createElement("button");
+		iframe = document.createElement("iframe");
+
+		iframe.src = "http://www.naver.com";
+		iframe.id = "view";
+		popup.id = "popup";
+		closeBtn.innerHTML = "닫기";
+		
+		popup.appendChild(iframe);
+		popup.appendChild(closeBtn);
+		document.body.appendChild(popup);
+		
+		closeBtn.onclick = function() {
+			document.body.removeChild(popup);
+		}
+	}
+}
+</script>
+<button id="btn">팝업 메세지 보기</button>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title> New Document </title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8";	/>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+start = function() {
+	var li = document.getElementsByTagName("li");
+	var nation =document.getElementById("nation");
+
+	nation.onchange = function() {
+		li[0].style.backgroundColor = "";
+		li[1].style.backgroundColor = "";
+		li[2].style.backgroundColor = "";
+		li[3].style.backgroundColor = "";
+		li[this.value].style.backgroundColor = "Yellow";
+	}
+}
+</script>
+</head>
+
+<body onload = "start()">
+<select id="nation">
+	<option value="">번호를 선택 하세요.</option>
+	<option value="0">No.0</option>
+	<option value="1">No.1</option>
+	<option value="2">No.2</option>
+	<option value="3">No.3</option>
+</select>
+<ul>
+	<li>Korea</li>
+	<li>Japan</li>
+	<li>China</li>
+	<li>Betnam</li>
+</ul>
+</body>
+</html>
+<!--
+디폴트 숙제 : 
+1. 오늘 수업 내용을 깔끔하게 정리해서 과제함 에 올리세요.
+3. 오늘 한 예제를 3번 반복하세요. 안보고 할 정도로 하세요.
+
+금주의 과제 : 
+초 1용 계산기 만들기 
+	- 음수가 결과로 나오면 안된다.
+	- Math.abs() 사용 하지말고 하세요.
+
+javascript의 Math객체에 대해서 예습 하세요.
+Math.abs();
+Math.random();  <-- 중요
+Math.ceil(); //올림
+Math.floor();  // 절삭
+Math.round(); //반올림
+Math.PI
+Math.sin();
+Math.cos();
+
+// 다음주에 할 내용도 예습 - 연산자, 제어문 등 ppt
+-->

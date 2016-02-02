@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+function People() {
+	this.name = "";
+}
+People.prototype.setName = function(name) {
+	this.name = name;
+}
+People.prototype.getName = function() {
+	return this.name;
+}
+
+window.onload = function() {
+	var obj4 = new People();
+	obj4.setName("김육섭");
+	console.log("obj4.getName() = " + obj4.getName() );
+}
+</script>
+</head>
+<body>
+
+</body>
+</html>

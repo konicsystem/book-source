@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<style>
+	img{width:50px;height:40px}
+</style>
+<script src="../lib/jquery-1.9.1.min.js"></script>
+<script>
+	var color=new Array("red","green","pink","yellow");
+	
+	$(document).ready(function(){
+	   //h3태그의 각각 다른 바탕색적용하기
+	   $('h3').each(function(index){
+	   	   $(this).css("background",color[index])
+	   });
+	   
+	   var beforeImg = "<img src='img/html5.jpg'>";
+	   var afterImg = "<img src='img/jquery.jpg'>";
+	  
+	    $('#before').click(function(){
+	   	   $(".a").before(beforeImg);
+	   });
+	   
+	   
+	   $('#after').click(function(){
+	   	  $(".b").after(afterImg);
+	   });
+	   
+	  
+	    $('#insertBefore').click(function(){
+	   	  $(beforeImg).insertBefore('.c');
+	   })
+	   
+	   $('#insertAfter').click(function(){
+		 $(afterImg).insertAfter('.d');
+	   })	   
+	   
+	})
+</script>
+</head>
+<body>
+	<input type="button" id="before" value="before"/>
+	<input type="button" id="after" value="after"/>
+	<input type="button" id="insertBefore" value="insertBefore"/>
+    <input type="button" id="insertAfter" value="insertAfter"/>
+	
+	<h3 class="a">before 영역</h3>
+	<h3 class="b">after 영역</h3>
+	<h3 class="c">insertBefore 영역</h3>
+	<h3 class="d">insertAfter 영역</h3>
+	
+</body>
+</html>

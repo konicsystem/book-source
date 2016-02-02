@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+</head>
+<body>
+<script type="text/javascript">
+window.onload = function() {
+	var image = document.getElementById("image");
+	var result = document.getElementById("result");
+	var btn = document.getElementById("btn");
+	btn.onclick = function() {
+		image.src = "images/img01.jpg";
+		result.innerHTML = "새로운 이미지로 변경 되었습니다.";
+		result.style.background = "Red";
+	}
+}
+</script>
+<img id="image" src="images/img00.jpg">
+<div id="result">확인을 누르면 이미지가 바뀝니다.</div>
+<button id="btn">확인</button>
+</body>
+</html>

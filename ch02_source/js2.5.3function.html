@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+(function() {
+	alert("함수 호출 없이도 자동 실행되는 함수!");
+})();
+test01 = function() {
+	alert("test01 함수 호출!");
+}
+function test02(x, y) {
+	alert("test02 함수 호출! 결과 = " + (x + y));
+	return x + y;
+}
+window.onload = function() {
+	var btn03 = document.getElementById("btn03");
+	btn03.onclick = function() {
+		document.write("결과 = " + test02(50, 60) );
+	}
+}
+</script>
+</head>
+<body>
+	<button onclick="javascript:test01()">함수1 호출</button><br>
+	<button onclick="test02(10,20)">함수2 호출</button><br>
+	<button id="btn03">함수2의 다른 호출</button>
+</body>
+</html>

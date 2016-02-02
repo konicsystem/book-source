@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title> New Document </title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<style>
+#bigImg > img {
+	width: 300px;
+	height: 400px;
+}
+</style>
+<script type="text/javascript">
+//var imgArr = ['img00.jpg','img01.jpg','img02.jpg','img03.jpg','img04.jpg','img05.jpg','img06.jpg','img07.jpg','img08.jpg','img09.jpg','img10.jpg','img11.jpg','img12.jpg',];
+var imgArr = new Array();
+var bigImg, btn_prev, btn_next, thumb1, thumb2, thumb3, count;
+var cnt = 1;
+init = function() {
+	for(var i=0; i<13; i++) {
+		var fileName = i<10 ? "img0"+i : "img"+i; //삼항연산자 [ 조건 ? 참 : 거짓; ]
+		imgArr.push(fileName+".jpg");
+	}
+	//console.log(imgArr);
+	bigImg = document.getElementById("bigImg");
+	btn_prev = document.getElementById("btn_prev");
+	btn_next = document.getElementById("btn_next");
+	thumb1 = document.getElementById("thumb1");
+	thumb2 = document.getElementById("thumb2");
+	thumb3 = document.getElementById("thumb3");
+	count = document.getElementById("count");
+
+	setImg();
+}
+setImg = function() {
+	count.innerHTML = cnt;
+	thumb1.innerHTML = '<img src="images/'+imgArr[cnt-1]+'" height="100">';
+	thumb2.innerHTML = '<img src="images/'+imgArr[cnt]+'" height="100">';
+	thumb3.innerHTML = '<img src="images/'+imgArr[cnt+1]+'" height="100">';
+
+	setBigImg(thumb2.innerHTML);
+}
+setBigImg = function(html) {
+	bigImg.innerHTML = html;
+}
+start = function() {
+	thumb1.onclick = function() {
+		setBigImg(this.innerHTML)
+	}
+	thumb2.onclick = function() {
+		setBigImg(this.innerHTML)
+	}
+	thumb3.onclick = function() {
+		setBigImg(this.innerHTML)
+	}
+	btn_prev.onclick = function() {
+		cnt -= 1;
+		if(cnt < 1) {
+			alert("처음 입니다.");
+			cnt = 1;
+		}
+		setImg();
+	}
+	btn_next.onclick = function() {
+		cnt += 1;
+		if(cnt > 11) {
+			alert("마지막 입니다.");
+			cnt = 11;
+		}
+		setImg();
+	}
+	btn_prev.onmouseover = function() {
+		this.style.background = "yellow"
+	}
+	btn_prev.onmouseout = function() {
+		this.style.background = "";
+	}
+	btn_next.onmouseover = function() {
+		this.style.background = "yellow"
+	}
+	btn_next.onmouseout = function() {
+		this.style.background = "";
+	}
+}
+window.onload = function() {
+	init();
+	start();
+}
+</script>
+</head>
+<body>
+<table border="1" cellspacing="0" cellpadding="0" width="400">
+	<tr align="center">
+		<td colspan="5" id="bigImg"><img src="images/img00.jpg"></td>
+	</tr>
+	<tr align="center">
+		<td id="btn_prev">뒤</td>
+		<td id="thumb1" width="100"><img src="images/img00.jpg"></td>
+		<td id="thumb2" width="100"><img src="images/img00.jpg"></td>
+		<td id="thumb3" width="100"><img src="images/img00.jpg"></td>
+		<td id="btn_next" width="50">앞</td>
+	</tr>
+	<tr>
+		<td id="count" colspan="5" align="center">0</td>
+	</tr>
+</table>
+<p>이미지를 클릭 하시면 크게 볼수 있습니다.</p>
+</body>
+</html>

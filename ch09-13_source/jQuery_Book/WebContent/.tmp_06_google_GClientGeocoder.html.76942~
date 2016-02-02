@@ -1,0 +1,82 @@
+<!DOCTYPE  html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>GeoLocation</title>
+		<!--
+		<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;region=GB&amp;key=<?=$api_key?>" type="text/javascript"></script>
+		-->
+
+		<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;region=GB&amp;" type="text/javascript"></script>
+
+		<script language="JavaScript">
+			var map = null;
+			var geocoder = null;
+
+			// 구글맵
+			function Gmap_load() {
+
+				if (GBrowserIsCompatible()) {
+
+					// 지도를 표시할 영영을 지정하여 map 인스턴스 생성.
+					map = new GMap2(document.getElementById("map_canvas"));
+
+					map.setCenter(new GLatLng(37.478204, 126.881629), 13);
+					//기본 center value.
+
+					map.setUIToDefault();
+					// 줌인기능. 지도,위성,지형 노출
+
+					geocoder = new GClientGeocoder();
+					//google의 지리정보를 객체화(주소좌표변환)
+
+					showAddress("경기도 성남시 분당구 야탑동 경남아그너스빌");
+
+				}
+
+			}
+
+			// 주소를 좌표로 변환
+			function showAddress(address) {
+
+				if (geocoder) {
+					geocoder.getLatLng(address, function(point) {
+						alert("point = "+point)
+						if (!point) {
+							alert("'" + address + "' 를 찾지 못하였습니다.");
+						} else {
+							map.setCenter(point, 16);
+							var marker = new GMarker(point);
+							map.addOverlay(marker);
+							// 지도좌표에 표시할 마크
+							marker.openInfoWindowHtml(address);
+							// 말풍선효과
+						}
+					});
+				}
+			}
+
+			function addrGeocoder() {
+				var addr = document.getElementById("addr").value;
+				showAddress(addr);
+			}
+		</script>
+	</head>
+	
+	<body onload="Gmap_load()" >
+		<div id="map_canvas" style="width:500px; height:300px;">
+			<!-- 구글지도 영역 -->
+		</div>
+
+		<br/>
+		<br/>
+
+		<h2> 주소를 입력하시면 지도가 변합니다!</h2>
+		주소 :
+		<input type="text" id="addr" size="50"/>
+		<input type="button" value="찾기" onclick="addrGeocoder()"/>
+
+	</body>
+
+</html>
+

@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8";	/>
+<script type="text/javascript">
+start = function() {
+	var li = document.getElementsByTagName("li");
+	var nation =document.getElementById("nation");
+/*	onchange - value 데이타가 바뀌면
+	onclick - 클릭하면
+	onmouseover - 마우스가 올라가면
+	onmouseout - 마우스가 내려가면
+	onfocus - 선택되면
+	onblur - 선택 해제 되면
+	keypress, keyup ... 등	*/
+	nation.onchange = function() {
+		alert(this.value);
+	}
+}
+</script>
+</head>
+<body onload = "start()">
+<select id="nation">
+	<option value="">번호를 선택 하세요.</option>
+	<option value="0">No.0</option>
+	<option value="1">No.1</option>
+	<option value="2">No.2</option>
+	<option value="3">No.3</option>
+</select>
+<ul>
+	<li>Korea</li>
+	<li>Japan</li>
+	<li>China</li>
+	<li>Betnam</li>
+</ul>
+</body>
+</html>

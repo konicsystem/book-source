@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf8">
+<title>Insert title here</title>
+</head>
+<body>
+<%
+	var cars = [{name:'SM5',price:3000,year:1999,company:'SAMSUNG'},
+	{name:'SM7',price:5000,year:2013,company:'SAMSUNG'}];
+%>
+<h1>자동차 목록</h1>
+<table>
+ <tr>
+ 	<td>자동차명</td>
+ 	<td>가격</td>
+ 	<td>연식</td>
+ 	<td>제조업체</td>
+ </tr>
+<%
+for(var i in cars){
+%>
+<tr>
+	<td><%=cars[i].name%></td>
+	<td><%=cars[i].price%></td>
+	<td><%=cars[i].year%></td>
+	<td><%=cars[i].company%></td>
+</tr>
+<%
+}
+%>
+</body>
+</html>

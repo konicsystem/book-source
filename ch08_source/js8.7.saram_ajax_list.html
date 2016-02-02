@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<title>Insert title here</title>
+<style type="text/css">
+#detail_view {
+	position: Absolute;
+	width: 200px;
+	height: 200px;
+	top: 160px;
+	left: 100px;
+	border: 3px solid Red;
+	background: Yellow;
+	display: none;
+}
+</style>
+<script type="text/javascript">
+HTTP = {};
+HTTP._factory = [
+	function () { return new XMLHttpRequest(); },
+	function () { return new ActiveXObject("Msxml12.XMLHTTP"); },
+	function () { return new ActiveXObject("Msxml13.XMLHTTP"); },
+	function () { return new ActiveXObject("Microsoft.XMLHTTP"); },	
+];
+HTTP.createXMLHTTPObj = function() {
+	var xmlHTTP = null;
+	for(var i=0; HTTP._factory.length; i++) {
+		try{
+			xmlHTTP = HTTP._factory[i](); //(function() {})();
+			break;
+		} catch(e) {
+			continue;
+		}
+	}
+	return xmlHTTP;
+}
+this.xmlHttp = null;
+window.onload = function() {
+	this.xmlHttp = HTTP.createXMLHTTPObj();
+	this.xmlHttp.onreadystatechange = on_ready;
+	var data = "user=kim&memo=love";
+	this.xmlHttp.open("POST","saram_list_xml.jsp",true);
+	this.xmlHttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+	this.xmlHttp.send(data);
+}
+on_ready = function() {
+	console.log(xmlHttp.readyState);
+	if(xmlHttp.readyState == 4) {
+		if(xmlHttp.status == 200) {
+			parseData(xmlHttp.responseXML);
+		}
+	}
+}
+parseData = function(respXML) {
+	console.log(respXML);
+	var saram = respXML.getElementsByTagName("saram");
+	var saramTable = document.getElementById("saram_table");
+	for(var i=0; i<saram.length; i++){
+		var id = saram[i].getElementsByTagName("id")[0].firstChild.nodeValue;
+		var name = saram[i].getElementsByTagName("name")[0].firstChild.nodeValue;
+		var age = saram[i].getElementsByTagName("age")[0].firstChild.nodeValue;
+		var tr = document.createElement("tr");
+		var td1 = document.createElement("td");
+		var td2 = document.createElement("td");
+		var td3 = document.createElement("td");
+		td1.innerHTML = id;
+		td2.innerHTML = name;
+		td3.innerHTML = age;
+		tr.appendChild(td1);
+		tr.appendChild(td2);
+		tr.appendChild(td3);
+		saramTable.appendChild(tr);
+		tr.idStr = id;
+		tr.nameStr = name;
+		tr.ageStr = age;
+		overAction(tr);
+	}// end of for
+}//end of parseData
+overAction = function(tr) {
+	var detailView = document.getElementById("detail_view");
+	tr.onmouseover = function() {
+		detailView.style.display = "block";
+		detailView.style.top = event.y + "px";
+		detailView.innerHTML = "id : " + this.idStr + "<br>";
+		detailView.innerHTML += "name : " + this.nameStr + "<br>";
+		detailView.innerHTML += "age : " + this.ageStr + "<br>";
+	}
+}
+</script>
+</head>
+<body>
+<table id="saram_table" width="550" border="1" cellspacing="0" cellpadding="0"></table>
+<div id="detail_view"></div>
+</body>
+</html>

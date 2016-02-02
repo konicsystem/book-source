@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<script type="text/javascript">
+function MkDiv() {
+	this.element = null; //멤버 필드
+	this.make = function(id, w, h, c) {
+		// id:엘리먼트의 아이디, w:넓이, h:높이, c:색상
+		this.element = document.createElement("div");
+		this.element.id = id;
+		this.element.style.width = w+"px";
+		this.element.style.height = h+"px";
+		this.element.style.backgroundColor = c;
+		console.log(this);
+		return this.element;
+	} //멤버 메소드
+}
+window.onload = function() {
+	var newDiv = new MkDiv().make("newDiv", 300, 300, "Red");
+	document.body.appendChild(newDiv);
+}
+</script>
+</head>
+<body>
+
+</body>
+</html>

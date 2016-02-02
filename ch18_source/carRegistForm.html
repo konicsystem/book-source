@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+table{border : solid blue thin;}
+</style>
+</head>
+<body>
+<h1>자동차 정보 등록</h1>
+<form action = "/carRegist" method = "post">
+<table>
+<tr>
+	<td>자동차이름</td>
+	<td><input type = "text" name = "car_name"/></td>
+</tr>
+<tr>
+	<td>자동차가격</td>
+	<td><input type = "text" name = "car_price"/></td>
+</tr>
+<tr>
+	<td>자동차제조회사</td>
+	<td><input type = "text" name = "car_company"/></td>
+</tr>
+<tr>
+	<td>자동차연식</td>
+	<td><input type = "text" name = "car_year"/></td>
+</tr>
+<tr>
+	<td colspan='2'><input type="submit" value = "등록"/></td>
+</tr>
+</table>
+</form>
+</body>
+</html>

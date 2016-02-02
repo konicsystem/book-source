@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+   <head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <title>Insert title here</title>
+	
+   <script src="../lib/jquery-1.9.1.min.js"></script>
+    
+   <script>
+		 $(function(){
+			var arr =[
+			   {name:'제이펍' , url : ' http://www.jpub.kr'} ,
+			   {name:'다음' ,  url : 'http://www.daum.net'} ,
+			   {name:'네이버' , url : 'http://www.naver.com'} 
+			];
+		
+			var data="";
+			$.each(arr , function(i , element){	
+				data += "<a href='"+element.url+"' >" + element.name + "</a><p/>"
+			});
+		
+			//만들어진 결과를 div 태그에 넣는다.
+			$('div').html(data);
+			
+			//a태그의 css 적요
+			$('a').css("textDecoration","none");
+	    })      
+  </script>  
+  </head>
+ <body>
+    <h3> each를 통한 동적 DOM 생성 </h3>
+	<div></div>
+ </body>
+</html>

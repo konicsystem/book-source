@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+table{border : solid blue thin;}
+</style>
+</head>
+<body>
+<h1>자동차 정보 수정</h1>
+<form action = "/carUpdate" method = "post">
+<table>
+<tr>
+	<td>자동차이름</td>
+	<td>
+	<input type = "text" name = "car_name" value = "<%=data[0].car_name%>" readonly/></td>
+</tr>
+<tr>
+	<td>자동차가격</td>
+	<td><input type = "text" name = "car_price" value = "<%=data[0].car_price%>"/></td>
+</tr>
+<tr>
+	<td>자동차제조회사</td>
+	<td><input type = "text" name = "car_company" value = "<%=data[0].car_company%>"/></td>
+</tr>
+<tr>
+	<td>자동차연식</td>
+	<td><input type = "text" name = "car_year" value = "<%=data[0].car_year%>"/></td>
+</tr>
+<tr>
+	<td colspan='2'><input type="submit" value = "수정"/></td>
+</tr>
+</table>
+</form>
+</body>
+</html>

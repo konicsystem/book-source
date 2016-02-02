@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title> New Document </title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8";	/>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+//var isMan = confirm("당신은 남자입니까?");
+//document.write("결과: " + isMan + "<br />");
+document.write("결과 : ");
+if(confirm("당신은 남자입니까?")  === true ) {
+	gender = "남";
+} else {
+	gender = "여";
+}
+document.body.innerHTML += gender + "탕으로 가시오.";
+//document.body가 로드 되지 않은 상태에서
+//document.body의 값을 사용하면 Error가 발생한다.
+</script>
+</head>
+
+<body>
+  
+</body>
+</html>

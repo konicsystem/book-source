@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<script>
+/* URL의 쿼리스트링이 아래와 같이 넘겨져 왔을때 key와 value를 
+분리 하는 자바 스크립트 코드이다.
+URL : 주소?name=kim&memo=gildong */
+url = location.href;
+if(url.indexOf("?") == -1 ) {
+	url += "?name=kim&memo=yugseob";
+	location.href = url;
+}
+str = url.split("?")[1];
+query = str.split("&");
+arr = new Array();
+for(var i=0; i<query.length; i++) {
+	var key_value = query[i].split("=");
+	arr[key_value[0]] = key_value[1];
+}
+str2 = 'name = ' + arr['name'] + '<br>memo = ' + arr['memo'];
+document.write(str2);
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload = function() {
+	var body = document.body;
+	var yn = false;
+	do {
+		body.innerHTML = "현재 yn의 상태 : " + yn;
+		yn = confirm("계속 하시겠습니까?" );
+	} while (yn );
+	body.innerHTML = "현재 yn의 상태 : " + yn;
+}
+</script>
+</head>
+<body>
+
+</body>
+</html>

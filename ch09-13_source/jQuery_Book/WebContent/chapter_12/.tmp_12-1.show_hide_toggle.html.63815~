@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<style>
+	a{text-decoration:none}
+</style>
+<script src="../lib/jquery-1.9.1.min.js"></script>
+<script>
+	$(document).ready(function(){
+          $("#show").click(function(){
+			$("img").show('slow' , function(){ //보이기 (속도 : 'slow' 'normal' 'fast')
+				$('img').attr("src","img/jquery.jpg")//이미지를 변경한다.
+			});
+		});
+		
+		$("#hide").click(function(){
+			$("img").hide('fast' , function(){
+				alert("hide완료")
+			});	
+		});
+		
+		 $("#toggle").click(function(){
+			$('img').toggle(1000, function(){});
+			
+		 });
+	});
+</script>
+</head>
+<body>
+<center>
+<h1>Basic 효과 </h1>
+	<a href="#" id="show">show</a>&nbsp;&nbsp;&nbsp;
+	<a href="#" id="hide">hide</a>&nbsp;&nbsp;&nbsp;
+	<a href="#" id="toggle">toggle</a>
+	
+	<hr/>
+	<img src="img/jpup_id.jpg"/>
+</center>
+</body>
+
+
+
+
+</html>

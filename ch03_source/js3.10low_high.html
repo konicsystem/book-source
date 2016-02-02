@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<title>자바스크립트 높다/낮다 게임</title>
+<script type="text/javascript">
+window.onload = function() {
+	var btns = document.getElementById("btns");
+	var text = document.getElementById("text");
+	var userNum = document.getElementById("userNum");
+	userNum.innerHTML = "0";
+	var num = 1 + Math.abs( Math.floor( Math.random() * 100 ) );
+	text.value = "System number : " + num + "\n";
+	var min = 1;
+	var max = 100;
+	for(var i=0; i<10; i++) {
+		var btn = document.createElement("button");
+		btn.innerHTML = "" + i;
+		btn.onclick = function(e) {
+			var number = parseInt(userNum.innerHTML);
+			var num2 = parseInt(this.innerHTML);
+			userNum.innerHTML = number * 10 + num2;
+		}
+		btns.appendChild(btn);
+	}
+	var okBtn = document.createElement("button");
+	okBtn.innerHTML = "OK";
+	okBtn.onclick = function(e) {
+		var number = parseInt(userNum.innerHTML);
+		if(number < min || number > max) {
+			text.value += "입력 한 숫자"+number+"는 범위에 맞지 않다. \n";
+		} else {
+			if(number == num) {
+				text.value += number + "는 정답입니다. \n";
+				text.value += "계속 하시려면 새로 고침하세요. \n";
+			} else if (number > num) {
+				text.value += number + "는 너무 큰 수입니다. \n";
+				max = number - 1;
+				text.value += "min:"+min+", max:"+max+"\n";
+			} else {
+				text.value += number + "는 너무 작은 수입니다. \n";
+				min = number + 1;
+				text.value += "min:"+min+", max:"+max+"\n";
+			}
+		}
+		userNum.innerHTML = " 0 ";
+	}
+	btns.appendChild(okBtn);
+}
+</script>
+</head>
+<body>
+<div><strong>시스템이 숫자를 선택하였습니다. <br>
+아래 버튼을 이용해서 맞춰 보세요.</strong></div>
+<div>사용자 선택 번호 : <span id="userNum"></span></div>
+<div id="btns"></div>
+<textarea id="text" rows="10" cols="40"></textarea>
+</body>
+</html>
